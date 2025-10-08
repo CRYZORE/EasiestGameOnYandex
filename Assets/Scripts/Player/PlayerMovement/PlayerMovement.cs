@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    //eblo baran'e
     [Header("Movement Settings")]
     public float moveSpeed = 6f;
     public float jumpHeight = 2f;
