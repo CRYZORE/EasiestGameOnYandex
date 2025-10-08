@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animation Settings")]
     public Animator playerAnimator;
-    public KeyCode jumpButton = KeyCode.Space;
+    public KeyCode jumpButton = KeyCode.Space; //это пробел блять
 
     private CharacterController controller;
     [SerializeField] Transform orient; 
