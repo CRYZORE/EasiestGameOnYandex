@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation Settings")]
     public Animator playerAnimator;
     public KeyCode jumpButton = KeyCode.Space; //это пробел блять
+    //второй пробел ебаный
 
     private CharacterController controller;
     [SerializeField] Transform orient; 
