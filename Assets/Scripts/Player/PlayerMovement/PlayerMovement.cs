@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation Settings")]
     public Animator playerAnimator;
     public KeyCode jumpButton = KeyCode.Space; //это пробел блять
-    //второй пробел ебаный  
+    //второй пробел ебаный
 
     private CharacterController controller;
     [SerializeField] Transform orient; 
@@ -20,14 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     float moveX, moveZ; 
 
-    private void Start() => controller = GetComponent<CharacterController>();
+    private void Start() => controller = GetComponent<CharacterController>();  // Я ДИЛДО
 
-    private void Update()
+    private void Update() // ВАЛЕРА ДИЛДАЧЬЁ 
     {
         GroundCheck();
         PlayerInput();
         // Управление анимациями (закомментировано)
-        UpdateAnimation(moveX, moveZ);
+        UpdateAnimation(moveX, moveZ); // Я ЕМ ГОВНО
     }
     void FixedUpdate() {
         CharacterMovement();
