@@ -79,4 +79,12 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("IsGrounded", isGrounded);
         }
     }
+
+    public void PlayDead()
+    {
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("IsDead", true);
+        }
+    }
 }
