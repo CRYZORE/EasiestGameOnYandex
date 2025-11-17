@@ -3,13 +3,17 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Camera Settings")]
-    public Transform player, orient, playerObj, target;
     public float sensitivity = 100f;
     public float zoomSpeed = 2f;
     public float minZoomDistance = 1f;
     public float maxZoomDistance = 10f;
     public float smoothTime = 0.1f;
     public float characterRotSpeed = 10f; 
+
+    [Header("Refs")]
+    public Transform player, orient, playerObj, target;
+    [SerializeField] PlayerMovement playerMovement; 
+    [SerializeField] GameObject crosshair; 
 
     [Header("First Person Settings")]
     public bool showCursorInFirstPerson = false;
@@ -42,7 +46,7 @@ public class CameraController : MonoBehaviour
 
         HandleInput();
         HandleZoom();
-        HandleRotation();
+        if(!playerMovement.isClimbingLadder) HandleRotation();
         UpdateCameraMode();
         UpdateCursorState();
     }
@@ -139,6 +143,7 @@ public class CameraController : MonoBehaviour
     {
         if (isFirstPerson)
         {
+            crosshair.SetActive(true); 
             // В режиме 1 лица
             if (showCursorInFirstPerson)
             {
@@ -153,6 +158,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
+            crosshair.SetActive(false); 
             // В режиме 3 лица
             if (isRightMousePressed)
             {
@@ -190,7 +196,7 @@ public class CameraController : MonoBehaviour
     // Метод для принудительного переключения режима (можно использовать из других скриптов)
     public void SetFirstPerson(bool firstPerson)
     {
-        isFirstPerson = firstPerson;
+        isFirstPerson = firstPerson; 
         if (!firstPerson && currentZoom <= minZoomDistance)
         {
             currentZoom = minZoomDistance * 1.5f; // Устанавливаем небольшое отдаление
